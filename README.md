@@ -1,15 +1,16 @@
 # Description du jeu
 
-## Scenario
+Scenario
 ------
 Un cycliste roule en ligne droite sur une plateforme 2D, il dois éviter des obstacles
 et esquiver des ennemis(voiture, autres cyclistes, piétons, etc.), afin d'avancer 
 pour compléter le niveau. De plus, dépendemment niveau, le joueur dois répondre à des questions 
 afin de pouvoir poursuivre sa course.
+
 ------
 
 
-## Principaux Assets
+Principaux Assets
 ------
 * Le cycliste(personnage du jeu)
 * Script pour le cycliste(sauter, avancer)
