@@ -771,7 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53304ef88928edb4f9294b923d47f063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelMenu: PauseMenu
+  levelMenu: Level1
   optionScreen: {fileID: 1863748361}
 --- !u!1 &1863748361 stripped
 GameObject:
