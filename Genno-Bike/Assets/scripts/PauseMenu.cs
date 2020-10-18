@@ -5,22 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-
     public GameObject optionScreen, pauseScreen;
 
     public string mainMenuScene;
 
-    private bool isPaused;
+//proprierty, car j'en ai besoin pour la coroutine,si le jeu est sur pause on ne veut pas que
+//les questions continuent d'etre posee.
+    public bool IsPaused{get;set;}
+
+//pour verifier si on peut faire pause au jeu, on ne veut pas mettre le jeu en pause si un question est en train d'etre posee.
+//le joueur pourrais chercher la reponse sur internet, on veut tester ses connaissances generales.
+    public bool CanBePaused{get; set;}
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //quand le jeu commence, on peut le mettre sur pause.ss
+        CanBePaused=true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && CanBePaused)
         {
             PauseUnpause();
         }
@@ -28,16 +35,16 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseUnpause()
     {
-        if(!isPaused)
+        if(!IsPaused)
         {
             pauseScreen.SetActive(true);
-            isPaused=true;
+            IsPaused=true;
             Time.timeScale=0;
         } else
         {
             optionScreen.SetActive(false);
             pauseScreen.SetActive(false);
-            isPaused=false;
+            IsPaused=false;
             Time.timeScale=1;
         }
     }
@@ -54,7 +61,7 @@ public class PauseMenu : MonoBehaviour
 
      public void QuitToMain()
     {
-        SceneManager.LoadScene(mainMenuScene);
         Time.timeScale=1;
+        SceneManager.LoadScene(mainMenuScene);
     }
 }
